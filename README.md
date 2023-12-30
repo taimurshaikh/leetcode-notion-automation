@@ -21,12 +21,12 @@ This project aims to automate the process of tracking your Leetcode problem comp
 
 ## Features
 
-[ ] Leetcode problem completion tracking
-[ ] Notion database integration
-[ ] Periodic updates
-[ ] Automatically update problem status and tags
-[ ] Track your progress and statistics
-[ ] Customizable settings and configurations
+- [ ] Leetcode problem completion tracking
+- [ ] Notion database integration
+- [ ] Periodic updates
+- [ ] Automatically update problem status and tags
+- [ ] Track your progress and statistics
+- [ ] Customizable settings and configurations
 
 ## Installation
 
