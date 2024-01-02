@@ -21,12 +21,13 @@ This project aims to automate the process of tracking your Leetcode problem comp
 
 ## Features
 
-- [ ] Leetcode problem completion tracking
-- [ ] Notion database integration
+- [ x ] Leetcode problem completion tracking
+- [ x ] Notion database integration
 - [ ] Periodic updates
-- [ ] Automatically update problem status and tags
+- [ ] Automatically update problem status
 - [ ] Track your progress and statistics
 - [ ] Customizable settings and configurations
+- [ ] Frontend UI
 
 ## Installation
 
@@ -44,9 +45,11 @@ To use this automation tool, follow these steps:
    npm install
    ```
 
-3. Configure the settings in the `.env` file.
+3. Enter your `NOTION_TOKEN` in a newly created `.env` file in the root directory. See https://developers.notion.com/docs/authorization for how to generate a token.
 
-4. Run the automation script:
+4. Enter your `NOTION_DATBASE_ID`
+
+5. Run the automation script:
 
    ```shell
    npm start
@@ -54,7 +57,7 @@ To use this automation tool, follow these steps:
 
 ## Usage
 
-To use this tool, follow the instructions above to start the server and it will update your selected Notion database with Leetcode problems. You can customize the settings and configurations according to your needs.
+To use this tool, follow the instructions above to start the server and it will update your selected Notion database with Leetcode problems.
 
 ## Contributing
 

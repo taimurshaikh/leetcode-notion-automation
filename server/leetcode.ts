@@ -7,12 +7,11 @@ export const initLeetCode = async () => {
   return new LeetCode(credential);
 };
 
-const getRecentSubmissions = async (leetcode: LeetCode) => {
+export const getRecentSubmissions = async (leetcode: LeetCode) => {
   return await leetcode.recent_submissions("taimurshaikh");
 };
 
-export const getNewSubmissions = async (leetcode: LeetCode) => {
-  const submissions = await getRecentSubmissions(leetcode);
+export const getNewSubmissions = (submissions: RecentSubmission[]) => {
   let new_submissions: RecentSubmission[] = submissions;
 
   if (prev_submissions.length !== 0) {
@@ -22,6 +21,36 @@ export const getNewSubmissions = async (leetcode: LeetCode) => {
   }
   prev_submissions = submissions;
   return new_submissions;
+};
+
+export const getAcceptedSubmissions = (submissions: RecentSubmission[]) => {
+  return submissions.filter((s) => s.statusDisplay === "Accepted");
+};
+
+export const removeDuplicateSubmissions = (
+  submissions: RecentSubmission[]
+): RecentSubmission[] => {
+  const uniqueSubmissions: RecentSubmission[] = [];
+
+  submissions.forEach((submission) => {
+    const existingSubmission = uniqueSubmissions.find(
+      (s) => s.titleSlug === submission.titleSlug
+    );
+    if (
+      !existingSubmission ||
+      parseInt(submission.timestamp) > parseInt(existingSubmission.timestamp)
+    ) {
+      if (existingSubmission) {
+        uniqueSubmissions.splice(
+          uniqueSubmissions.indexOf(existingSubmission),
+          1
+        );
+      }
+      uniqueSubmissions.push(submission);
+    }
+  });
+
+  return uniqueSubmissions;
 };
 
 export const getProblemFromSubmission = async (
