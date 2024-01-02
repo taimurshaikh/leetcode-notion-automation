@@ -21,8 +21,8 @@ This project aims to automate the process of tracking your Leetcode problem comp
 
 ## Features
 
-- [ x ] Leetcode problem completion tracking
-- [ x ] Notion database integration
+- [x] Leetcode problem completion tracking
+- [x] Notion database integration
 - [ ] Periodic updates
 - [ ] Automatically update problem status
 - [ ] Track your progress and statistics
