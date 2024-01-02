@@ -1,17 +1,19 @@
 // server/server.ts
 import express from "express";
-import { getRecentSubmissions, initLeetCode } from "./leetcode";
-import dotenv from "dotenv";
+import { getNewSubmissions, initLeetCode } from "./leetcode";
+import { updateDatabaseWithSubmissions } from "./notion";
+import { config } from "dotenv";
 
-dotenv.config();
+config();
 
 const app = express();
 const port = 5050;
 
-app.get("/api", async (req, res) => {
-  const lc = await initLeetCode(process.env.LEETCODE_SESSION_COOKIE);
-  const submissions = await getRecentSubmissions(lc);
-  res.send(JSON.stringify(submissions));
+app.get("/update", async (req, res) => {
+  const lc = await initLeetCode();
+  const submissions = await getNewSubmissions(lc);
+  updateDatabaseWithSubmissions(lc, submissions);
+  res.json(submissions);
 });
 
 app.listen(port, () => {
