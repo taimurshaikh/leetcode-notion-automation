@@ -1,7 +1,10 @@
 {
   "name": "leetcode-notion-automator",
   "version": "0.1.0",
+  "proxy": "http://localhost:5000",
   "private": true,
+  "type": "module",
+  "description": "This project was bootstrapped with [Create React App]",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
